@@ -45,7 +45,11 @@ export default function Login() {
             <div>
               <input className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded' type="submit" ref={BtnRfc} disabled id="submit" name='submitBtn'/>
             </div>
-
+            </div>
+            <div className='border-t-2 border-black-100 border-b-2 border-black-100'>
+              <div className='py-2'>
+                <Link to="/" className='text-sm text-center'>SIGN IN WITH SSO</Link>
+              </div>
             </div>
           </form>
         </div>
