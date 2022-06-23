@@ -18,10 +18,16 @@ export default function Login() {
         <div>
           <form className="mt-8 space-y-6" action='#' method='POST' >
             <div>
-              <input className="apperence-none rounded-none outline-inherit rounded relative block w-full px-3 py-3 border border-b-neutral-900 rounded-t-md focus:outline-none focus:ring-indigo-50  focus:z-10 sm:text-sm outline:none placeholder:italic placeholder:text-slate-400 " type="email" id="email" name="email" placeholder="Enter UserName or Email"/>
+              <input className="apperence-none rounded-none outline-inherit 
+              rounded relative block w-full px-3 py-3 border border-b-neutral-900 
+              rounded-t-md focus:outline-none focus:ring-indigo-50  focus:z-10 
+              sm:text-sm outline:none placeholder:italic placeholder:text-slate-400 " type="email" id="email" name="email" placeholder="Enter UserName or Email"/>
             </div>
             <div className='py-2'>
-              <input className="apperence-none rounded-none rounded relative block w-full px-2.5 py-3 border border-b-neutral-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:z-10 sm:text-sm  outline:none placeholder:italic placeholder:text-slate-400" type="password" name="password" id="password" placeholder="Please Enter Password"/>
+              <input className="apperence-none rounded-none rounded relative block 
+              w-full px-2.5 py-3 border border-b-neutral-900 rounded-t-md 
+              focus:outline-none focus:ring-indigo-500 focus:z-10 sm:text-sm  
+              outline:none placeholder:italic placeholder:text-slate-400" type="password" name="password" id="password" placeholder="Please Enter Password"/>
             </div>
             <div className='flex justify-between'>
             <div className='text-center'>
