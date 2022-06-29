@@ -1,8 +1,26 @@
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom' 
+import { Eye } from 'heroicons-react';
 
 export default function Login() {
-  
+
+    const [values, setValues] = React.useState({
+      password: "",
+      showPassword: false,
+    });
+    
+    const handleClickShowPassword = () => {
+      setValues({ ...values, showPassword: !values.showPassword });
+    };
+    
+    const handleMouseDownPassword = (event) => {
+      event.preventDefault();
+    };
+    
+    const handlePasswordChange = (prop) => (event) => {
+      setValues({ ...values, [prop]: event.target.value });
+    };
+
   let BtnRfc = useRef();
   let enbbtn = (event) =>{
     let flg = event.target.checked
@@ -16,18 +34,31 @@ export default function Login() {
           <h1 className="mt-6 text-3xl font-semibold font-extrabold text-gray-900">Welcome Back!</h1>
         </div>
         <div>
-          <form className="mt-8 space-y-6" action='#' method='POST' >
+          <form className="mt-8 space-y-6" >
             <div>
               <input className="apperence-none rounded-none outline-inherit 
               rounded relative block w-full px-3 py-3 border border-b-neutral-900 
               rounded-t-md focus:outline-none focus:ring-indigo-50  focus:z-10 
               sm:text-sm outline:none placeholder:italic placeholder:text-slate-400 " type="email" id="email" name="email" placeholder="Enter UserName or Email"/>
             </div>
-            <div className='py-2'>
-              <input className="apperence-none rounded-none rounded relative block 
+            <div className="py-2 relative">
+              <input
+                className="apperence-none rounded-none rounded relative block 
               w-full px-2.5 py-3 border border-b-neutral-900 rounded-t-md 
               focus:outline-none focus:ring-indigo-500 focus:z-10 sm:text-sm  
-              outline:none placeholder:italic placeholder:text-slate-400" type="password" name="password" id="password" placeholder="Please Enter Password"/>
+              outline:none placeholder:italic placeholder:text-slate-400 "
+                name="password"
+                id="password"
+                type={values.showPassword ? "text" : "password"}
+                onChange={handlePasswordChange("password")}
+                value={values.password}
+                placeholder="Please Enter Password"
+              />
+              <div className="py-0 px-80  absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
+              <button className="btn btn-outline-primary" onClick={handleClickShowPassword}
+              onMouseDown={handleMouseDownPassword}>
+                {values.showPassword ? <Eye/> : <Eye/>} </button>
+              </div>
             </div>
             <div className='flex justify-between'>
             <div className='text-center'>
@@ -46,7 +77,7 @@ export default function Login() {
               <input className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded' type="submit" ref={BtnRfc} disabled id="submit" name='submitBtn'/>
             </div>
             </div>
-            <div className='border-t-2 border-black-100 border-b-2 border-black-100'>
+            <div className='border-t-2 border-black-100 border-b-2 border-black-100 text-center'>
               <div className='py-2'>
                 <Link to="/" className='text-sm text-center'>SIGN IN WITH SSO</Link>
               </div>
